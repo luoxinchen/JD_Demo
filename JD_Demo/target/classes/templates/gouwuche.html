@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>购物车</title>
+</head>
+<body>
+	<h1>购物车</h1>
+	<hr/>
+	<form th:action="@{/jiesuan}" method="post"> 
+		<table border="1">
+			<tr>
+				<th>物品图片</th>
+				<th>物品名称</th>
+				<th>价格</th>
+				<th>仓库数量</th>
+				<th>购买数量</th>
+				<th>是否购买</th>
+			</tr>
+			<tr th:each="a:${gouwuchexinxi}">
+				<td>图片</td>
+				<td th:text="${a.h_name}"></td>
+				<td th:text="${a.h_price}"></td>
+				<td th:text="${a.h_number}"></td>
+				<td th:text="${a.number}"></td>
+				<td>
+					<input type="checkbox" name="checkbox" th:value="${a.h_name}+','+${a.h_price}+','+${a.h_number}+','+${a.number}"/>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="购买"/>
+	</form>
+</body>
+</html>

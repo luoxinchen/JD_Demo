@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>购买</title>
+</head>
+<body>
+	
+	<table border="1">
+			<tr height="100">
+				<td rowspan="2" width="340">
+					<form th:action="@{/index}" method="post">
+						<input type="submit" value="京东"/> 
+					</form>
+				</td>
+				<td rowspan="2" width="670">
+					<form th:action="@{/sousuo}" method="post">
+						<center>
+						<input type="search" name="name"/>
+						<input type="submit" value="查找"/>
+						</center>
+					</form>
+				</td>
+<!-- 	[       		判断是否可以登录  -->
+			
+			<span th:if="${yonghuname} == null">
+				<td width="170" align="right">
+					<form th:action="@{/denglu}" method="post">
+						<input type="submit" value="登录"/>
+					</form>
+				</td>
+				<td width="170" align="left">
+					<form th:action="@{/zhuce}" method="post">
+						<input type="submit" value="注册"/>
+					</form>
+				</td>
+			</span>
+			<span th:if="${yonghuname} != null">
+				<td width="170" align="center">
+					<form th:action="@{/gerenxinxi}" method="post">
+					<center>
+						<input type="submit" th:value="${yonghuname}"/>
+					</center>
+					</form>
+				</td>
+				<td width="170" align="center">
+					<form th:action="@{/gouwuche}" method="post">
+					<center>
+						<input type="submit" value="购物车"/>
+					</center>
+					</form>
+				</td>
+			</span>
+		</tr>
+		</table>
+		<hr/>
+	
+	<h1>购买成功</h1>
+</body>
+</html>

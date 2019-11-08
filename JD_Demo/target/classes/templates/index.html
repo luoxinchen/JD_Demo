@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>首页</title>
+</head>
+<body>
+	<table border="1">
+			<tr height="100">
+				<td rowspan="2" width="340">
+					<form th:action="@{/index}" method="post">
+						<input type="submit" value="京东"/> 
+					</form>
+				</td>
+			<td rowspan="2" width="670">
+				<form th:action="@{/sousuo}" method="post">
+					<center>
+					<input type="search" name="name"/>
+					<input type="submit" value="查找"/>
+					</center>
+				</form>
+			</td>
+			
+<!-- 	[       		判断用户是否可以登录  -->
+			
+				<span th:if="${yonghuname} == null">
+					<span th:if="${shanghuname} == null">
+						<td width="170" align="center">
+							<form th:action="@{/yonghudenglu}" method="post">
+								<input type="submit" value="用户登录"/>
+							</form>
+						</td>
+						<td width="170" align="center">
+							<form th:action="@{/yonghuzhuce}" method="post">
+								<input type="submit" value="用户注册"/>
+							</form>
+						</td>
+					</span>
+				</span>
+				<span th:if="${yonghuname} != null">
+					<td width="170" align="center">
+						<form th:action="@{/yonghugeren}" method="post">
+						<center>
+									 <input type="hidden" th:name="${yonghuname}"/>
+							用户信息：<input type="submit" th:value="${yonghuname}"/>
+						</center>
+						</form>
+					</td>
+					<td width="170" align="center">
+						<form th:action="@{/gouwuche}" method="post">
+						<center>
+							<input type="submit" value="购物车"/>
+						</center>
+						</form>
+					</td>
+				</span>
+<!--  	]				 登录状态结束  -->
+
+
+
+
+<!-- 	[       		判断用户是否可以登录，可以的话，把商家的登录按钮换成注销和余额按钮  -->
+		</tr>
+		<tr height="50">
+			<span th:if="${shanghuname} == null">
+				<span th:if="${yonghuname} == null">
+					<td width="170" align="center">
+						<form th:action="@{/shanghudenglu}" method="post">
+							<input type="submit" value="商户登录"/>
+						</form>
+					</td>
+					<td width="170" align="center">
+						<form th:action="@{/shanghuazhuce}" method="post">
+							<input type="submit" value="商户注册"/>
+						</form>
+					</td>
+				</span>
+			</span>
+				<span th:if="${shanghuname} != null">
+					<td width="170" align="center">
+						<form th:action="@{/shanghuxinxi}" method="post">
+						<center>
+							商家信息：<input type="submit" th:value="${shanghuname}"/>
+						</center>
+						</form>
+					</td>
+					<td width="170" align="center">
+						<form th:action="@{/wodedianpu}" method="post">
+							<input type="submit" value="我的店铺"/>
+						</form>
+					</td>
+			</span>
+		</tr>
+	</table>
+	<hr/>
+<!--  	]				 登录状态结束  -->
+
+
+
+	
+<!-- 			链接开始					 -->
+	<center>
+		<table border="1">
+			<tr height="50" align="center">
+				<td width="101"><a href="#"/>秒杀</td>
+				<td width="101"><a href="#"/>优惠券</td>
+				<td width="101"><a href="#"/>PLUS会员</td>
+				<td width="101"><a href="#"/>品牌闪购</td>
+				<td width="101"><a href="#"/>拍卖</td>
+				<td width="101"><a href="#"/>京东时尚</td>
+				<td width="101"><a href="#"/>京东超市</td>
+				<td width="101"><a href="#"/>京东生鲜</td>
+				<td width="101"><a href="#"/>海囤全球</td>
+				<td width="101"><a href="#"/>京东金融</td>
+			</tr>
+		</table>
+	</center>
+	<hr/>
+	
+<!-- 			链接开始					 -->
+		<center>
+			<table border="1">
+				<tr height="50" align="center">
+					<td width="101">
+						<!-- <form th:action="" method=""> 
+							<input type="hidden" name="jiadian"/>
+								
+						</form> -->
+						家电
+					
+					</td>
+					
+					
+					
+					<td width="101"><a href="#"/>手机</td>
+					<td width="101"><a href="#"/>电脑</td>
+					<td width="101"><a href="#"/>家居</td>
+					<td width="101"><a href="#"/>男装</td>
+					<td width="101"><a href="#"/>女装</td>
+					<td width="101"><a href="#"/>美妆</td>
+					<td width="101"><a href="#"/>男鞋</td>
+					<td width="101"><a href="#"/>女鞋</td>
+					<td width="101"><a href="#"/>二手</td>
+				</tr>
+				<tr height="50" align="center">
+					<td width="101"><a href="#"/>母婴</td>
+					<td width="101"><a href="#"/>乐器</td>
+					<td width="101"><a href="#"/>食品</td>
+					<td width="101"><a href="#"/>艺术</td>
+					<td width="101"><a href="#"/>医药</td>
+					<td width="101"><a href="#"/>图书</td>
+					<td width="101"><a href="#"/>教育</td>
+					<td width="101"><a href="#"/>旅游</td>
+					<td width="101"><a href="#"/>理财</td>
+					<td width="101"><a href="#"/>维修</td>
+				</tr>
+			</table>
+		</center>
+	<hr/>
+
+
+
+
+</body>
+</html>

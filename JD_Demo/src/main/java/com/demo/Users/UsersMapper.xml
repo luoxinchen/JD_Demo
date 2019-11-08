@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.demo.Users.UsersMapper">
+	<insert id="insertUsers">
+		insert into users values(default,#{name},#{password})
+	</insert>
+	
+	<delete id="deleteUsers">
+		delete from users where name=#{name}
+	</delete>
+	<!-- 别名在application.properties最后一行已经配置好了 -->
+	<select id="selectUsers" resultType="users">
+		select * from users
+	</select>
+	
+	<update id="updateUserss">
+		update users set password=#{password} where name=#{name}
+	</update>
+</mapper>
